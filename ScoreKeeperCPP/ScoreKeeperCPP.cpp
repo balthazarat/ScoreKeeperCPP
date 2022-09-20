@@ -8,13 +8,37 @@
 #include <string>
 using namespace std;
 
-const int numTeams = 5;
-const char* team[numTeams] = { "TeamA", "TeamB", "TeamC", "TeamD", "TeamE"};
-std::string match[numTeams + 2]; // number of teams + 2 so that it accounts for the extra matches
+const int numTeams = 4;
+const char* team[numTeams] = { "TeamA", "TeamB", "TeamC", "TeamD"};
 int matchIndex = 0;
+const int numMatch;
+
+// maths for match number
+int matchMath() {
+    int n; // for ncr
+    int m; // holding variable
+    int l; // holding variable
+    n = numTeams - 1;
+    m = n + 1;
+    l = n * m;
+    numMatch = l / 2;
+    std::cout << numMatch;
+    return numMatch;
+}
 
 int main()
 {
+    int n; // for ncr
+    int m; // holding variable
+    int l; // holding variable
+    n = numTeams - 1;
+    m = n + 1;
+    l = n * m;
+    numMatch = l / 2;
+    std::cout << numMatch;
+    
+    //std::string match[numMatch]; // number of teams + 2 so that it accounts for the extra matches
+
     printf("");
     for (int j = 0; j < numTeams + 2; j++) { // loops for number of matches, which is the number of teams + 2
         for (int i = 1; i < numTeams; i++) { // loops through the teams until i >= to the number of teams
@@ -34,15 +58,9 @@ int main()
     for (int i = 0; i < matchIndex; i++) { // loops through var i with reference to matchIndex
         std::cout << "\n matches " << match[i]; // prints match parings, this is what will be entered into the randome generator.
     }
-}
+} 
 
-/*/int order(int num)
-{
-    int q = num;
 
-}
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
 // Tips for Getting Started:
 //   1. Use the Solution Explorer window to add/manage files
